@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+for opt in "$@"
+    do
+        case "$1" in
+            --) shift ; break ;;
+            -*) shift ;;
+             *) break ;;
+        esac
+done
+
+export FAKEROOTDONTTRYCHOWN=true
+
+unset FAKEROOTCMD
+[ "$FAKECHROOT" == "true" ]||\
+    FAKEROOTCMD+=(fakechroot)
+[ -n "$FAKED_MODE" ]||\
+    FAKEROOTCMD+=(fakeroot)
+
+if [ -z "$*" ]
+    then ${FAKEROOTCMD[@]} "${SHELL:-/bin/sh}"
+    else ${FAKEROOTCMD[@]} "$@"
+fi

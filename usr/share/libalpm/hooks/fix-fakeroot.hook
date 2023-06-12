@@ -1,0 +1,10 @@
+[Trigger]
+Type = Path
+Operation = Install
+Operation = Upgrade
+Target = usr/bin/fakeroot
+
+[Action]
+Description = Updating fakeroot...
+When = PostTransaction
+Exec = /usr/bin/sh -c "sed -i 's|trap \"kill -s TERM \$PID\"|trap \"kill -s TERM \$PID 2>/dev/null\"|' /usr/bin/fakeroot"
