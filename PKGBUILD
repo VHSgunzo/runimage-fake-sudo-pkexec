@@ -1,8 +1,8 @@
 # Maintainer: VHSgunzo <vhsgunzo.github.io>
 
 pkgname='fake-sudo-pkexec'
-pkgver='0.3'
-pkgrel='2'
+pkgver='0.4'
+pkgrel='1'
 pkgdesc='Fake sudo and pkexec for RunImage container'
 url="https://github.com/VHSgunzo/runimage-fake-sudo-pkexec"
 arch=('any')

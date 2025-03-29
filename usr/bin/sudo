@@ -12,7 +12,8 @@ export FAKEROOTDONTTRYCHOWN=true
 
 unset FAKEROOTCMD
 [ "$FAKECHROOT" == "true" ]||\
-    FAKEROOTCMD+=(fakechroot)
+   command -v fakechroot &>/dev/null && \
+   FAKEROOTCMD+=(fakechroot)
 [ -n "$FAKED_MODE" ]||\
     FAKEROOTCMD+=(fakeroot)
 
